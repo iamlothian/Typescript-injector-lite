@@ -9,26 +9,7 @@ module.exports = function(config) {
         },
 
         karmaTypescriptConfig: {
-            compilerOptions:{
-                "compileOnSave": true,
-                "compilerOptions": {
-                  "outDir": "dist",
-                  "sourceMap": true,
-                  "declaration": true,
-                  "module": "commonjs",
-                  "target": "ES5",
-                  "experimentalDecorators": true,
-                  "emitDecoratorMetadata":true,
-                  "types": ["reflect-metadata"]
-                },
-                "include": [
-                  "src/**/*"
-                ],
-                "exclude": [
-                  "node_modules",
-                  "dist"
-                ]
-              }
+            tsconfig: "./tsconfig.json"
         },
 
         files: [
