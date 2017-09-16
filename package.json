@@ -2,29 +2,26 @@
   "name": "typescript-injector-lite",
   "version": "0.1.0",
   "description": "",
+  "keywords": [],
+  "author": "Matthew Lothian (iamlothian)",
+  "license": "MIT",
   "main": "./src/index.js",
   "scripts": {
-    "build": "tsc -w",
-    "dev": "karma start",
-    "dev:ci": "karma start --single-run",
-    "dev:ci:phantomjs": "karma start --browsers PhantomJS --single-run",
+    "build": "webpack --config webpack.config.js --display-error-details",
+    "test:ci": "karma start --single-run",
     "test": "karma start"
   },
   "repository": {
     "type": "git",
     "url": "git://github.com/iamlothian/Typescript-injector-lite"
   },
-  "keywords": [
-
-  ],
-  "author": "Matthew Lothian (iamlothian)",
-  "license": "MIT",
   "dependencies": {
-    "reflect-metadata": "^0.1.10",
-    "typescript": "^2.5.2"
+    "es6-shim": "^0.35.3",
+    "reflect-metadata": "^0.1.10"
   },
   "devDependencies": {
     "@types/jasmine": "^2.5.54",
+    "awesome-typescript-loader": "^3.2.3",
     "jasmine": "^2.8.0",
     "jasmine-core": "^2.8.0",
     "karma": "^1.7.1",
@@ -32,6 +29,9 @@
     "karma-cli": "^1.0.1",
     "karma-jasmine": "^1.1.0",
     "karma-remap-coverage": "^0.1.4",
-    "karma-typescript": "^3.0.5"
+    "karma-typescript": "^3.0.5",
+    "typescript": "^2.5.2",
+    "uglifyjs-webpack-plugin": "^0.4.6",
+    "webpack": "^3.6.0"
   }
 }

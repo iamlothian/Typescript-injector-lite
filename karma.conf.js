@@ -9,7 +9,7 @@ module.exports = function(config) {
         },
 
         karmaTypescriptConfig: {
-            tsconfig: "./tsconfig.json"
+            tsconfig: "./tsconfig.test.json"
         },
 
         files: [

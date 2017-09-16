@@ -12,7 +12,8 @@
       "types": ["reflect-metadata"]
     },
     "include": [
-      "./src/**/*"
+      "./src/**/*",
+      "./tests/**/*"
     ],
     "exclude": [
       "node_modules",

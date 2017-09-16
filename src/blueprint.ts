@@ -1,5 +1,7 @@
+//import { Map, Array } from 'es6-shim'
 import { Dependency } from './dependency'
 import { Alias }      from './alias'
+
 
 /**
  *  
