@@ -8,7 +8,8 @@ A light dependency injection framework utilizing typescript annotations.
 
 ## Service
 A class annotated as a `service` will be injected as a singleton instance, and shared between all instances that require it.
-```
+
+```javascript
 import * as Injector from "typescript-injector-lite";
 
 @Injector.service()
@@ -21,7 +22,7 @@ export class A {
 A class annotated as a `factory` will be injected as a new instance every time it is require.
 - An optional alias lets you choose a second name to use to inject the class.
 
-```
+```javascript
 import * as Injector from "typescript-injector-lite";
 
 @Injector.factory('my:B')
@@ -34,7 +35,8 @@ export class B {
 Annotated classes can make use of constructor injecting using the `inject` annotation.
 - For class typed attributes the type name will be used by default to resolve the instance from the container
 - Else an explicit name can be used to resolve the instance.
-```
+
+```javascript
 import * as Injector from "typescript-injector-lite";
 
 @Injector.service()
@@ -49,14 +51,14 @@ export class C {
 ## ImportValue
 where there are non classical objects or external instances that you with to inject, you can make use of the `importValue` method to make the container aware of them.
 
-```
+```javascript
 Injector.importValue("myValue", [1,2,3]);
 ```
 
 ## Instantiate
 In cases where you want to retrieve an instance from the container without constructor injection, the `instantiate` method can be used.
 
-```
+```javascript
 Injector.instantiate("myValue");
 ```
 
