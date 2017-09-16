@@ -1,4 +1,4 @@
-import * as Injector from "../src/";
+import * as Injector from "../";
 
 @Injector.service()
 export class A {
