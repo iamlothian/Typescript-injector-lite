@@ -10,8 +10,7 @@
     "test": "karma start",
     "test:ci": "karma start --single-run",
     "build:webpack": "webpack --config webpack.config.js --display-error-details",
-    "prepublish": "npm run test:ci && npm run build:webpack",
-    "publish": "echo 'publish'"
+    "prepare": "npm run test:ci && npm run build:webpack"
   },
   "repository": {
     "type": "git",
