@@ -11,7 +11,7 @@
     "test:ci": "karma start --single-run",
     "build:tsc": "tsc",
     "build:webpack": "webpack --config webpack.config.js --display-error-details",
-    "prepare": "npm run test:ci && npm run build:tsc"
+    "prepare": "npm run test:ci && npm run build:webpack"
   },
   "repository": {
     "type": "git",

@@ -12,8 +12,9 @@ module.exports = {
   entry: './index.ts',
   output: {
     path: path.resolve(__dirname, 'dist'),
-    filename: 'typescript-injector-light.js'
-    //library: 'typescript-injector-light'
+    filename: 'typescript-injector-light.js',
+    library: 'typescriptInjectorLight',
+    libraryTarget: 'commonjs2'
   },
   externals: {
     inject: supportedModules,
