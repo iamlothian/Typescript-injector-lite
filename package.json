@@ -5,12 +5,13 @@
   "keywords": [],
   "author": "Matthew Lothian (iamlothian)",
   "license": "MIT",
-  "main": "./dist/index.js",
+  "main": "./dist/typescript-injector-light.js",
   "scripts": {
     "test": "karma start",
     "test:ci": "karma start --single-run",
+    "build:tsc": "tsc",
     "build:webpack": "webpack --config webpack.config.js --display-error-details",
-    "prepare": "npm run test:ci && npm run build:webpack"
+    "prepare": "npm run test:ci && npm run build:tsc"
   },
   "repository": {
     "type": "git",

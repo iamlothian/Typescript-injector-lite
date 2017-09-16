@@ -1,11 +1,26 @@
 var webpack = require('webpack'),
-    UglifyJSPlugin = require('uglifyjs-webpack-plugin');
     path = require('path');
+
+var supportedModules = {
+  commonjs: 'lodash',
+  commonjs2: 'lodash',
+  amd: 'lodash',
+  root: '_'
+}
 
 module.exports = {
   entry: './index.ts',
   output: {
-    filename: './dist/index.js'
+    path: path.resolve(__dirname, 'dist'),
+    filename: 'typescript-injector-light.js'
+    //library: 'typescript-injector-light'
+  },
+  externals: {
+    inject: supportedModules,
+    instantiate: supportedModules,
+    importValue: supportedModules,
+    service: supportedModules,
+    factory: supportedModules
   },
   resolve: {
     extensions: ['.ts']
@@ -16,6 +31,6 @@ module.exports = {
     ]
   },
   plugins: [
-    new UglifyJSPlugin()
+    new webpack.optimize.UglifyJsPlugin()
   ]
 };
