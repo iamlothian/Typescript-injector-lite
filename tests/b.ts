@@ -1,4 +1,4 @@
-import { Injector } from "../src/";
+import * as Injector from "../src/";
 
 @Injector.factory("B_Alias")
 export class B {

@@ -1,11 +1,11 @@
 import 'jasmine'
-import { Injector } from "../src/";
+import * as Injector from "../src/";
 
 import {A} from './a'
 import {B} from './b'
 import {C} from './c'
 
-Injector.value("myValue", [1,2,3]);
+Injector.importValue("myValue", [1,2,3]);
 
 describe("Injector", () => {
 
@@ -17,7 +17,7 @@ describe("Injector", () => {
 
     it("can throw an error if an instance is already registered with the container", () => {
         expect(()=>{
-            Injector.value("A", "A");
+            Injector.importValue("A", "A");
         }).toThrowError('A provider for A already exists in the container');
     })
 
@@ -63,19 +63,17 @@ describe("Injector", () => {
     })
 
     it("can defer the construction of a class until all of the required dependencies are constructed", () => {
-        Injector.value("deferredValue", "deferred");
+        Injector.importValue("deferredValue", "deferred");
         var c:C = Injector.instantiate("C");
         expect(c.deferredValue).toEqual('deferred');
     })
 
-    it ('can throw as error if a injected constructor argument does not exist', ()=>{
+    it ('can throw as error if a injected constructor tries to inject itself', ()=>{
 
         expect(()=>{
             @Injector.service()
             class Test{constructor(@Injector.inject() public t:Test){}}
-        }).toThrowError('The provider for C is deferred and waiting for: [deferredValue]');
-
-        let t = Injector.instantiate("Test");
+        }).toThrowError('Argument 0 of the constructor for Test can not inject itself.');
 
     })
 

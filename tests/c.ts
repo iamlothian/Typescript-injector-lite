@@ -1,4 +1,4 @@
-import { Injector } from "../src/";
+import * as Injector from "../src/";
 import {A} from './a'
 import {B} from './b'
 

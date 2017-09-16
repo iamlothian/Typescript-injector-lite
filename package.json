@@ -1,8 +1,8 @@
 {
-  "name": "ts_di",
-  "version": "1.0.0",
+  "name": "typescript-injector-lite",
+  "version": "0.1.0",
   "description": "",
-  "main": "index.js",
+  "main": "./src/index.js",
   "scripts": {
     "build": "tsc -w",
     "dev": "karma start",
@@ -10,8 +10,15 @@
     "dev:ci:phantomjs": "karma start --browsers PhantomJS --single-run",
     "test": "karma start"
   },
-  "author": "",
-  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/iamlothian/Typescript-injector-lite"
+  },
+  "keywords": [
+
+  ],
+  "author": "Matthew Lothian (iamlothian)",
+  "license": "MIT",
   "dependencies": {
     "reflect-metadata": "^0.1.10",
     "typescript": "^2.5.2"

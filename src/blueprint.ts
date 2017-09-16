@@ -40,7 +40,7 @@ export abstract class Blueprint {
         let unresolved:Array<string> = [];
         for (let dependency of this.dependencies){
             let blueprint = Blueprint.container.get(dependency.required);
-            if(blueprint !== undefined){
+            if(blueprint !== undefined && blueprint._isReady){
                 dependency.resolved = blueprint.instantiate();
             } else {
                 unresolved.push(dependency.required);
