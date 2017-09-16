@@ -1,7 +1,5 @@
 //import { Map, Array } from 'es6-shim'
 import { Dependency } from './dependency'
-import { Alias }      from './alias'
-
 
 /**
  *  
@@ -74,10 +72,6 @@ export abstract class Blueprint {
 
     protected getResolvedDependencies():Array<any>{
         return this.dependencies.map( v => v.resolved)
-    }
-
-    makeAlias(key:string):Alias {
-        return new Alias(key, this, []);
     }
 
     build(): void{

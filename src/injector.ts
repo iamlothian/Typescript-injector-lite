@@ -88,7 +88,7 @@ export function service(key?:string){
         );
         blueprint.build();
         if (!!key && constructor["name"] !== key){
-            blueprint.makeAlias(key).build();
+            Alias.create(key,blueprint).build();
         }
         return constructor;
     }
@@ -110,7 +110,7 @@ export function factory(key?:string){
         );
         blueprint.build();
         if (!!key && constructor["name"] !== key){
-            blueprint.makeAlias(key).build();
+            Alias.create(key,blueprint).build();
         }
         return constructor;
     }
