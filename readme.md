@@ -6,6 +6,13 @@ A light dependency injection framework utilizing typescript annotations.
 - No bootstrapping
 - Deferred dependency resolution and injection
 
+## Install
+
+```
+npm i typescript-injector-lite -save
+```
+
+
 ## Service
 A class annotated as a `service` will be injected as a singleton instance, and shared between all instances that require it.
 
