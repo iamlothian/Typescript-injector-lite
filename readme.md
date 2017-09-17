@@ -12,6 +12,18 @@ A light dependency injection framework utilizing typescript annotations.
 npm i typescript-injector-lite -save
 ```
 
+### tsconfig.json 
+Make sure that you include the following setting in your projects config 
+
+```json
+{
+    "compilerOptions": {
+        "experimentalDecorators": true,
+        "emitDecoratorMetadata":true
+        ...
+    }
+}
+```
 
 ## Service
 A class annotated as a `service` will be injected as a singleton instance, and shared between all instances that require it.
@@ -73,4 +85,7 @@ Injector.instantiate("myValue");
 When a class is registered with the container, it will attempt to find all of is dependencies. If one or more dependencies are missing, the class will deffer is resolution and listen for the required class to be registered.
 
 If there are no dependencies, or all of the required dependencies have been resolved, the registering class will build and instance itself in the container. Then call out to any listening classes who require it.
+
+## Debugging
+To get an log of the registration and resolution process, run your app with the following environment variable enabled ´DEBUG=typescript-injector-light´
 

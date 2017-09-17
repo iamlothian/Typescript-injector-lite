@@ -5,7 +5,6 @@ import { Service }      from './service'
 import { Factory }      from './factory'
 import { Alias }        from './alias'
 
-
 /**
  * Returns a list of dependencies tagged by metadata to the target 
  * 

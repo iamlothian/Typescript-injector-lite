@@ -1,5 +1,7 @@
-//import { Map, Array } from 'es6-shim'
 import { Dependency } from './dependency'
+import * as debug from 'loglevel-debug'
+
+const logger = debug("typescript-injector-light")
 
 /**
  *  
@@ -25,7 +27,7 @@ export abstract class Blueprint {
             );
         }
 
-        // console.log("Blueprint: " + this.key)
+        logger.debug("Blueprint: " + this.key)
 
         if(Blueprint.container.has(this.key)){
             throw new Error("A provider for "+this.key+" already exists in the container");
@@ -52,7 +54,7 @@ export abstract class Blueprint {
 
     private deferDependencyResolution(unresolvedDependencies:Array<string>):void {
 
-        // console.log('Defer: ' + this.key + '. waiting for ' + unresolvedDependencies);
+        logger.debug('Defer: ' + this.key + '. waiting for ' + unresolvedDependencies);
 
         for (let dependency of unresolvedDependencies){
             
@@ -76,7 +78,7 @@ export abstract class Blueprint {
 
     build(): void{
 
-        // console.log("build: "+ this.key);
+        logger.debug("build: "+ this.key);
     
         let unresolvedDependencies = this.tryResolveDependencies();
         if (unresolvedDependencies.length !== 0){
@@ -89,16 +91,18 @@ export abstract class Blueprint {
             Blueprint.deferredBlueprints.has(this.key) ? 
             Blueprint.deferredBlueprints.get(this.key) : [];   
 
-        // console.log('dependents waiting for ['+ this.key+ '] = '+ dependents.length);
+        logger.debug('dependents waiting for ['+ this.key+ '] = '+ dependents.length);
 
         for (let dependent of dependents){ 
-            // console.log('Update: ' + dependent.key);
+            logger.debug('Update: ' + dependent.key);
             dependent.build();
         }
 
         Blueprint.deferredBlueprints.delete(this.key);
 
     }
+
+    instantiate() {}
 
     static instantiate(key:string) {
 
@@ -114,8 +118,6 @@ export abstract class Blueprint {
             throw new Error("A provider for "+key+" does not exists in the container");
         }
         
-    }
-
-    instantiate() {}
+    }    
 
 }
