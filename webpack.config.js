@@ -26,12 +26,15 @@ module.exports = {
   resolve: {
     extensions: ['.ts']
   },
+  devtool: 'source-map',
   module: {
     loaders: [
       { test: /.ts$/, loader: 'awesome-typescript-loader' }
     ]
   },
   plugins: [
-    new webpack.optimize.UglifyJsPlugin()
+    new webpack.optimize.UglifyJsPlugin({
+      sourceMap: true
+    })
   ]
 };
